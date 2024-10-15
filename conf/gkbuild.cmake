@@ -3,7 +3,7 @@ include(CheckFunctionExists)
 include(CheckIncludeFile)
 
 # Setup options.
-option(OPENMP "enable OpenMP support" OFF)
+option(OPENMP "enable OpenMP support" ON)
 option(PCRE "enable PCRE support" OFF)
 option(GKREGEX "enable GKREGEX support" OFF)
 option(GKRAND "enable GKRAND support" OFF)
