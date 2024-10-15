@@ -3,7 +3,7 @@ include(CheckFunctionExists)
 include(CheckIncludeFile)
 
 # Setup options.
-option(OPENMP "enable OpenMP support" OFF)
+option(OPENMP "enable OpenMP support" ON)
 option(PCRE "enable PCRE support" OFF)
 option(GKREGEX "enable GKREGEX support" OFF)
 option(GKRAND "enable GKRAND support" OFF)
@@ -97,3 +97,9 @@ endif()
 # Finally set the official C flags.
 add_compile_options("$<$<COMPILE_LANGUAGE:C>:${GKlib_COPTS}>")
 add_compile_definitions("$<$<COMPILE_LANGUAGE:C>:${GKlib_COPTIONS}>")
+
+if(ENABLE_ASAN)
+    add_compile_options(-g -fsanitize=address)
+    add_link_options(-g -fsanitize=address)
+endif(ENABLE_ASAN)
+
